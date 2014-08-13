@@ -17,7 +17,7 @@ import org.junit.Test;
 public class OrderServiceTest {
 
 	/**
-	 * This is the most comprehensive test case; it uses the input/output from the provided example
+	 * This is the most comprehensive test case; it uses a variety of input/output
 	 * 
 	 * Test method for
 	 * {@link org.bendra.codesample.order.service.OrderService}
