@@ -47,7 +47,7 @@ public class OrderService {
 	 * 
 	 * @param updateToProcess
 	 */
-	public void processUpdate(OrderUpdate updateToProcess) {
+	public synchronized void processUpdate(OrderUpdate updateToProcess) {
 		// confirm update contains required fields and can be processed
 		if (!validateUpdateFields(updateToProcess)) {
 			throw new IllegalArgumentException(
