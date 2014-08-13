@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="buildJar" name="order-app">
+    <property environment="env"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="order-app.classpath">
+        <pathelement location="build"/>
+        <pathelement location="lib/gson-2.2.4.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="build"/>
+    	<mkdir dir="build/src"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="build">
+            <fileset dir="test">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+    	<delete file="${ant.project.name}.jar"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-project" name="build"/>
+    <target depends="init" name="build-project">	
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="order-app.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="build" source="${source}" target="${target}">
+            <src path="test"/>
+            <classpath refid="order-app.classpath"/>
+        </javac>
+    </target>
+	<target depends="build" name="buildJar" description="Create executable jar">
+		<mkdir dir="build/lib"/>
+		<copy file="lib/gson-2.2.4.jar" todir="build/lib"/>
+		<jar destfile="${ant.project.name}.jar" basedir="build" excludes="**/*Test.class" >
+			<manifest>
+				<attribute name="Main-Class" value="org.bendra.codesample.order.Console" />
+				<attribute name="Class-Path" value="lib/gson-2.2.4.jar" />
+			</manifest>
+		</jar>
+	</target>
+</project>
