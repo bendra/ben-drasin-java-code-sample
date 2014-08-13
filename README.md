@@ -31,6 +31,7 @@ http://ant.apache.org/bindownload.cgi
 Set ANT_HOME variable to wherever Ant is, and in the project root directory (the same same directory as this file) run
 
 `$> $ANT_HOME/ant clean`
+
 `$> $ANT_HOME/ant`
 
 This will rebuild the executable jar from source.
