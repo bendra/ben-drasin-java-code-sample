@@ -58,3 +58,13 @@ src/org/bendra/yelptest/petespizza/Console.java main[] method
 
 Most of the work is in a singleton class, which uses an in-memory collection to store orders and updates as they are processed:
 /src/org/bendra/yelptest/petespizza/service/OrderService.java
+
+===========================
+
+### Licensing and legal issues
+  --------------------------
+
+See licenses for accompanying products in the "legal" directory.
+* Gson is licensed under the Apache License, version 2.0
+* JUnit is licensed under the Eclipse Public License version 1.0
+* Hamcrest is licensed under the New BSD License 
